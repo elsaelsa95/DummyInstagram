@@ -1,7 +1,9 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+
+import Story from "./../screenComponents/Story"
 
 const Home = () => {
   return (
@@ -33,6 +35,9 @@ const Home = () => {
           />
         </View>
       </View>
+      <ScrollView style={{ margin:10 }}>
+        <Story/>
+      </ScrollView>
     </View>
   );
 };
