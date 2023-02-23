@@ -24,7 +24,7 @@ const Post = () => {
     <View>
       <ScrollView showsVerticalScrollIndicator={false}>
         {posts?.map((value, index) => (
-          <TouchableOpacity key={index}>
+          <View key={index} style={{ marginBottom: 10 }}>
             <View style={{ flexDirection: "row", margin: 10 }}>
               <Image
                 style={{
@@ -42,39 +42,56 @@ const Post = () => {
             </View>
             <Image
               style={{
-                width: 370,
+                width: "100%",
                 height: 300,
                 borderWidth: 0.3,
                 borderColor: "silver",
               }}
               source={{ uri: value.post }}
             />
-            <View style={{ flexDirection: "row", margin: 10 }}>
-              {value.isLove === true ? (
-                <FontAwesome name="heart" size={25} color="red" />
-              ) : (
-                <FontAwesome name="heart-o" size={25} color="black" />
-              )}
-              <AntDesign
-                name="message1"
-                size={25}
-                color="black"
-                style={{ marginLeft: 20 }}
-              />
-              <Ionicons
-                name="paper-plane-outline"
-                size={25}
-                color="black"
-                style={{ marginLeft: 20 }}
-              />
+            <View key={index} style={{ flexDirection: "row", margin: 10 }}>
+              <TouchableOpacity>
+                {value.isLove === true ? (
+                  <FontAwesome name="heart" size={25} color="red" />
+                ) : (
+                  <FontAwesome name="heart-o" size={25} color="black" />
+                )}
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <AntDesign
+                  name="message1"
+                  size={25}
+                  color="black"
+                  style={{ marginLeft: 20 }}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Ionicons
+                  name="paper-plane-outline"
+                  size={25}
+                  color="black"
+                  style={{ marginLeft: 20 }}
+                />
+              </TouchableOpacity>
             </View>
             <View style={{ marginLeft: 10 }}>
-              <Text>{value.totalLoves} likes</Text>
-              <Text style={{ fontWeight: "bold", marginRight: 5 }}>
-                {value.caption}
+              <Text style={{ fontWeight: "bold" }}>
+                {value.totalLoves} likes
               </Text>
+              <View style={{ flexDirection: "row"}}>
+                <Text style={{ fontWeight: "bold" }}>
+                  {value.fullName}
+                  {" "}
+                  <Text style={{ fontWeight:"normal", alignItems:"stretch" }}>{value.caption}</Text>
+                </Text>
+              </View>
+              <TouchableOpacity>
+                <Text style={{ marginRight: 5, opacity: 0.5 }}>
+                  View all comments
+                </Text>
+              </TouchableOpacity>
             </View>
-          </TouchableOpacity>
+          </View>
         ))}
       </ScrollView>
     </View>
