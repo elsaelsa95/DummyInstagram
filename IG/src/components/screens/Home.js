@@ -1,13 +1,14 @@
 import React from "react";
-import { View, Text, ScrollView } from "react-native";
+import { View, Text } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
 import Story from "./../screenComponents/Story"
+import Post from "./../screenComponents/Post"
 
 const Home = () => {
   return (
-    <View>
+    <View style= {{ backgroundColor:"white" }}>
       <View
         style={{
           marginTop: 40,
@@ -35,9 +36,8 @@ const Home = () => {
           />
         </View>
       </View>
-      <ScrollView style={{ margin:10 }}>
         <Story/>
-      </ScrollView>
+        <Post/>
     </View>
   );
 };
