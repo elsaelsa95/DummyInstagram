@@ -5,6 +5,8 @@ import { FontAwesome } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
+import Comment from "./Comment";
+
 const Post = () => {
   const [posts, setPosts] = useState([]);
 
@@ -20,6 +22,11 @@ const Post = () => {
   useEffect(() => {
     fetchAllPosts();
   });
+
+  const [shouldShow, setShouldShow] = useState(true);
+  const [totalLoves, setTotalLoves] = useState(95);
+  const [isLove, setIsLove] = useState(false);
+
   return (
     <View>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -50,8 +57,18 @@ const Post = () => {
               source={{ uri: value.post }}
             />
             <View key={index} style={{ flexDirection: "row", margin: 10 }}>
-              <TouchableOpacity>
-                {value.isLove === true ? (
+              <TouchableOpacity
+                onPress={() => {
+                  if (isLove){
+                    setTotalLoves((prevCount) => prevCount - 1);
+                  }
+                  else {
+                    setTotalLoves((prevCount) => prevCount + 1);
+                  }
+                  setIsLove(!isLove);
+                }}
+              >
+                {isLove ? (
                   <FontAwesome name="heart" size={25} color="red" />
                 ) : (
                   <FontAwesome name="heart-o" size={25} color="black" />
@@ -75,21 +92,21 @@ const Post = () => {
               </TouchableOpacity>
             </View>
             <View style={{ marginLeft: 10 }}>
-              <Text style={{ fontWeight: "bold" }}>
-                {value.totalLoves} likes
-              </Text>
-              <View style={{ flexDirection: "row"}}>
+              <Text style={{ fontWeight: "bold" }}>{totalLoves} likes</Text>
+              <View style={{ flexDirection: "row" }}>
                 <Text style={{ fontWeight: "bold" }}>
-                  {value.fullName}
-                  {" "}
-                  <Text style={{ fontWeight:"normal", alignItems:"stretch" }}>{value.caption}</Text>
+                  {value.fullName}{" "}
+                  <Text style={{ fontWeight: "normal", alignItems: "stretch" }}>
+                    {value.caption}
+                  </Text>
                 </Text>
               </View>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => setShouldShow(!shouldShow)}>
                 <Text style={{ marginRight: 5, opacity: 0.5 }}>
                   View all comments
                 </Text>
               </TouchableOpacity>
+              {!shouldShow ? null : <Comment />}
             </View>
           </View>
         ))}
