@@ -3,7 +3,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import * as React from "react";
-import { useFonts } from "expo-font";
 
 import Home from "./src/components/screens/Home";
 import Search from "./src/components/screens/Search";
@@ -13,9 +12,6 @@ import Profile from "./src/components/screens/Profile";
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-  const [fontsLoaded] = useFonts({
-    "LobsterTwo-Regular": require("./assets/fonts/LobsterTwo-Regular.ttf"),
-  });
 
   return (
     <NavigationContainer>

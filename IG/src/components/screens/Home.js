@@ -2,11 +2,24 @@ import React from "react";
 import { View, Text } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { useFonts } from "expo-font";
 
 import Story from "./../screenComponents/Story"
 import Post from "./../screenComponents/Post"
 
 const Home = () => {
+  const [fontsLoaded] = useFonts({
+    "LobsterTwo-Regular": require("./../../../assets/fonts/LobsterTwo-Regular.ttf"),
+  });
+  if (!fontsLoaded) {
+    // return (console.log("Loading..."))
+    return (
+      <View>
+        <Text> Loading ...</Text>
+      </View>
+    )
+  }
+
   return (
     <View style= {{ backgroundColor:"white" }}>
       <View

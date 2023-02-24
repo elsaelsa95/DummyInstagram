@@ -7,12 +7,16 @@ const Comment = () => {
   const [comments, setComments] = useState([]);
 
   const fetchAllComments = async () => {
-    const data = await fetch(
-      "https://private-705ef-elsaelsa95.apiary-mock.com/comments"
-    );
-    const result = await data.json();
-    console.log(result)
-    setComments(result.data);
+    try {
+      const data = await fetch(
+        "https://private-705ef-elsaelsa95.apiary-mock.com/comments"
+      );
+      const result = await data.json();
+      // console.log(result)
+      setComments(result.data);
+    } catch (error) {
+      console.log("Error Comment :", error);
+    }
   };
 
   useEffect(() => {

@@ -11,12 +11,16 @@ const Post = () => {
   const [posts, setPosts] = useState([]);
 
   const fetchAllPosts = async () => {
-    const data = await fetch(
-      "https://private-705ef-elsaelsa95.apiary-mock.com/posts"
-    );
-    const result = await data.json();
-    // console.log(result)
-    setPosts(result.data);
+    try {
+      const data = await fetch(
+        "https://private-705ef-elsaelsa95.apiary-mock.com/posts"
+      );
+      const result = await data.json();
+      // console.log(result)
+      setPosts(result.data);
+    } catch (error) {
+      console.log("Error Post:", error);
+    }
   };
 
   useEffect(() => {
@@ -59,10 +63,9 @@ const Post = () => {
             <View key={index} style={{ flexDirection: "row", margin: 10 }}>
               <TouchableOpacity
                 onPress={() => {
-                  if (isLove){
+                  if (isLove) {
                     setTotalLoves((prevCount) => prevCount - 1);
-                  }
-                  else {
+                  } else {
                     setTotalLoves((prevCount) => prevCount + 1);
                   }
                   setIsLove(!isLove);

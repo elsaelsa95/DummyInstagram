@@ -6,12 +6,16 @@ const Story = () => {
   const [stories, setStories] = useState([]);
 
   const fetchAllStories = async () => {
-    const data = await fetch(
-      "https://private-705ef-elsaelsa95.apiary-mock.com/stories"
-    );
-    const result = await data.json();
-    // console.log(result)
-    setStories(result.data);
+    try {
+      const data = await fetch(
+        "https://private-705ef-elsaelsa95.apiary-mock.com/stories"
+      );
+      const result = await data.json();
+      // console.log(result)
+      setStories(result.data);
+    } catch (error) {
+      console.log("Error Story:", error);
+    }
   };
 
   useEffect(() => {
