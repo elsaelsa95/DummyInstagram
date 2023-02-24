@@ -8,13 +8,15 @@ import Home from "./src/components/screens/Home";
 import Search from "./src/components/screens/Search";
 import Post from "./src/components/screens/Post";
 import Profile from "./src/components/screens/Profile";
-
-const Tab = createBottomTabNavigator();
+import StoryDetail from "./src/components/screenComponents/StoryDetail";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 export default function App() {
+  const Tab = createBottomTabNavigator();
+  const Stack = createNativeStackNavigator();
 
-  return (
-    <NavigationContainer>
+  const BottomTab = () => {
+    return (
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarShowLabel: false,
@@ -34,7 +36,7 @@ export default function App() {
             return <Ionicons name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: "black",
-          tabBarInactiveTintColor: "gray"
+          tabBarInactiveTintColor: "gray",
         })}
       >
         <Tab.Screen name="Home" component={Home} />
@@ -42,6 +44,19 @@ export default function App() {
         <Tab.Screen name="Post" component={Post} />
         <Tab.Screen name="Profile" component={Profile} />
       </Tab.Navigator>
+    );
+  };
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={() => ({
+          headerShown: false,
+        })}
+      >
+        <Stack.Screen name="BottomTab" component={BottomTab} />
+        <Stack.Screen name="StoryDetail" component={StoryDetail} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

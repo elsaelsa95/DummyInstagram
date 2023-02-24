@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { View, Text, ScrollView, TouchableOpacity, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
+import { useNavigation } from "@react-navigation/native";
+
 const Story = () => {
   const [stories, setStories] = useState([]);
 
@@ -22,6 +24,8 @@ const Story = () => {
     fetchAllStories();
   });
 
+  const navigation = useNavigation();
+
   return (
     <View>
       <ScrollView
@@ -30,7 +34,17 @@ const Story = () => {
         style={{ paddingVertical: 10 }}
       >
         {stories?.map((value, index) => (
-          <TouchableOpacity key={index}>
+          <TouchableOpacity
+            key={index}
+            onPress={() =>
+              navigation.navigate("StoryDetail", {
+                id: value.id,
+                avatar: value.avatar,
+                fullName: value.fullName,
+                story: value.story
+              })
+            }
+          >
             <View
               style={{
                 flexDirection: "column",
