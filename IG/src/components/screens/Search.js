@@ -25,7 +25,7 @@ const Search = () => {
   return (
     <View
       style={{
-        marginTop: 40,
+        marginTop: 20,
         width: "100%",
         heigth: "100%",
         backgroundColor: "white",
@@ -52,7 +52,7 @@ const Search = () => {
               top: windowHeigth / 8,
               left: windowWidth / 25,
               backgroundColor: "white",
-              width: 350,
+              width: 330,
               height: 465,
               borderRadius: 15,
               zIndex: 1,
@@ -83,7 +83,7 @@ const Search = () => {
             </View>
             <Image
               source={{ uri: value.content }}
-              style={{ width: "97%", height: "80%" }}
+              style={{ width: "100%", height: "80%" }}
             />
             <View>
               <View

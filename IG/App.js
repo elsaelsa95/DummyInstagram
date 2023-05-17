@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
@@ -6,7 +6,7 @@ import * as React from "react";
 
 import Home from "./src/components/screens/Home";
 import Search from "./src/components/screens/Search";
-import Post from "./src/components/screens/Post";
+// import Post from "./src/components/screens/Post";
 import Profile from "./src/components/screens/Profile";
 import StoryDetail from "./src/components/screenComponents/StoryDetail";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -28,9 +28,11 @@ export default function App() {
               iconName = focused ? "md-home" : "md-home-outline";
             } else if (route.name === "Search") {
               iconName = focused ? "md-search" : "md-search-outline";
-            } else if (route.name === "Post") {
-              iconName = focused ? "md-add-circle" : "md-add-circle-outline";
-            } else if (route.name === "Profile") {
+            }
+            // else if (route.name === "Post") {
+            //   iconName = focused ? "md-add-circle" : "md-add-circle-outline";
+            // }
+            else if (route.name === "Profile") {
               iconName = focused ? "person" : "person-outline";
             }
             return <Ionicons name={iconName} size={size} color={color} />;
@@ -41,7 +43,7 @@ export default function App() {
       >
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Search" component={Search} />
-        <Tab.Screen name="Post" component={Post} />
+        {/* <Tab.Screen name="Post" component={Post} /> */}
         <Tab.Screen name="Profile" component={Profile} />
       </Tab.Navigator>
     );
