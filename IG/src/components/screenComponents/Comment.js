@@ -51,7 +51,7 @@ const Comment = () => {
               >
                 <Image
                   style={{
-                    reziseMode: "cover",
+                    // reziseMode: "cover",
                     width: 30,
                     height: 30,
                     borderRadius: 100,

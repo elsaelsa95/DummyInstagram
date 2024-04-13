@@ -51,7 +51,7 @@ export const ProfileBody = ({
           <Image
             source={{ uri: profileImage }}
             style={{
-              resizeMode: "cover",
+              // resizeMode: "cover",
               width: 80,
               height: 80,
               borderRadius: 100,

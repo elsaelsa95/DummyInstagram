@@ -1,6 +1,6 @@
 import React from "react";
 import { View, TextInput } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 
 const SearchBox = () => {
   return (
@@ -13,8 +13,8 @@ const SearchBox = () => {
         position: "relative",
       }}
     >
-      <Ionicons
-        name="md-search-outline"
+      <AntDesign
+        name="search1"
         style={{
           fontSize: 20,
           opacity: 0.7,

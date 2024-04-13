@@ -39,7 +39,7 @@ const Post = () => {
             <View style={{ flexDirection: "row", margin: 10 }}>
               <Image
                 style={{
-                  reziseMode: "cover",
+                  // reziseMode: "cover",
                   width: 30,
                   height: 30,
                   borderRadius: 100,

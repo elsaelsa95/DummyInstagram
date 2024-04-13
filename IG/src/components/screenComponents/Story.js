@@ -41,7 +41,7 @@ const Story = () => {
                 id: value.id,
                 avatar: value.avatar,
                 fullName: value.fullName,
-                story: value.story
+                story: value.story,
               })
             }
           >
@@ -79,7 +79,7 @@ const Story = () => {
               >
                 <Image
                   style={{
-                    reziseMode: "cover",
+                    // reziseMode: "cover",
                     width: 50,
                     height: 50,
                     borderRadius: 100,

@@ -37,7 +37,7 @@ const StoryDetail = ({ route }) => {
       >
         <Image
           style={{
-            reziseMode: "cover",
+            // reziseMode: "cover",
             width: 40,
             height: 40,
             borderRadius: 100,

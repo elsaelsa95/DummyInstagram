@@ -25,9 +25,9 @@ export default function App() {
             let iconName;
 
             if (route.name === "Home") {
-              iconName = focused ? "md-home" : "md-home-outline";
+              iconName = focused ? "home" : "home-outline";
             } else if (route.name === "Search") {
-              iconName = focused ? "md-search" : "md-search-outline";
+              iconName = focused ? "search" : "search-outline";
             }
             // else if (route.name === "Post") {
             //   iconName = focused ? "md-add-circle" : "md-add-circle-outline";
